@@ -116,6 +116,13 @@ vmod_query_postalcode(const struct vrt_ctx *ctx, struct vmod_priv *priv, const s
 	return vmod_query_common(ctx, priv, ip, postalcode_path);
 }
 
+VCL_STRING
+vmod_query_asn(const struct vrt_ctx *ctx, struct vmod_priv *priv, const struct suckaddr *ip)
+{
+	static const char *asn_path[] = { "autonomous_system_organization", NULL };
+	return vmod_query_common(ctx, priv, ip, asn_path);
+}
+
 // keep function vmod_query() for compatibility
 VCL_STRING
 vmod_query(const struct vrt_ctx *ctx, struct vmod_priv *priv, const struct suckaddr *ip)
